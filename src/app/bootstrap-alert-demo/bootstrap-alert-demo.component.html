@@ -1,0 +1,70 @@
+<div style="font-size:18px;font-weight:bold">Alerts</div>
+<p>Provides contextual feedback messages for typical user actions with the handful of available and flexible alert messages.</p>
+
+
+<alert type="success">
+  <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+</alert>
+<alert type="info">
+  <strong>Heads up!</strong> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
+</alert>
+<alert type="warning">
+  <strong>Warning!</strong> Better check yourself, you're <a href="#" class="alert-link">not looking too good</a>.
+</alert>
+<alert type="danger">
+  <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
+</alert>
+
+<alert type="success">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</alert>
+
+<div style="font-weight:bolder">Dismissing</div>
+<p>Alerts have dismiss option. Enabling it will show close button to the right of the alert.</p>
+
+
+<div *ngFor="let alert of alerts">
+  <alert [type]="alert.type" dismissible="true">{{ alert.msg }}</alert>
+</div>
+<button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+
+
+<div style="font-weight:bolder">Dynamic html</div>
+<p>Sometimes you will need to show dynamically generated html in alerts, here is how you can make it. And don't forget to sanitize your html.</p>
+
+<div *ngFor="let alert of alerts">
+  <alert [type]="alert.type"><span [innerHtml]="alert.msg"></span></alert>
+</div>
+
+
+
+<div style="font-weight:bolder;">Dismiss on timeout</div>
+<p>You can simply set timeout in milliseconds to dismissOnTimeout property to create self closable alerts.</p>
+
+<alert type="success" dismissOnTimeout="5000">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
+<p>If you missed alert on top of me, just press <code>Add more</code> button</p>
+<div *ngFor="let alert of alertss">
+  <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+</div>
+<button type="button" class="btn btn-primary" (click)="add()">Add more</button>
+
+
+<alert type="md-color">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
+<alert type="md-local">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+
+<alert>
+  <strong>Well done!</strong> You successfully read this important alert message.
+</alert>
+<alert type="info">
+  <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+</alert>

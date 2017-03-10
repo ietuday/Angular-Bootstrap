@@ -1,0 +1,56 @@
+<div class="timePickerDemoHeading">TimePicker</div>
+
+<timepicker [(ngModel)]="mytime"></timepicker>
+<pre class="alert alert-info">Time is: {{mytime}}</pre>
+
+
+<div class="timePickerDemoHeading">Meridian</div>
+
+<timepicker [(ngModel)]="mytime" [showMeridian]="ismeridian"></timepicker>
+
+<pre class="alert alert-info">Time is: {{mytime}}</pre>
+
+<hr>
+
+<button type="button" class="btn btn-info" (click)="toggleMode()">12H / 24H</button>
+
+<div class="timePickerDemoHeading">Disabled</div>
+
+<timepicker [(ngModel)]="mytime" [showMeridian]="ismeridian1" [readonlyInput]="!isEnabled"></timepicker>
+<hr>
+
+<button type="button" class="btn btn-info" (click)="isEnabled=!isEnabled">Enable / Disable input</button>
+
+<timepicker [(ngModel)]="mytime" [hourStep]="hstep" [minuteStep]="mstep"></timepicker>
+
+<pre class="alert alert-info">Time is: {{mytime}}</pre>
+
+<div class="row">
+  <div class="col-xs-6">
+    Hours step is:
+    <select class="form-control" [(ngModel)]="hstep">
+      <option *ngFor="let opt of options.hstep" [value]="opt">{{opt}}</option>
+    </select>
+  </div>
+  <div class="col-xs-6">
+    Minutes step is:
+    <select class="form-control" [(ngModel)]="mstep">
+      <option *ngFor="let opt of options.mstep" [value]="opt">{{opt}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="timePickerDemoHeading">Dynamic</div>
+
+<timepicker [(ngModel)]="mytime" (change)="changed()"></timepicker>
+
+<pre class="alert alert-info">Time is: {{mytime}}</pre>
+
+<button type="button" class="btn btn-primary" (click)="update()">Set to 14:00</button>
+<button type="button" class="btn btn-danger" (click)="clear()">Clear</button>
+
+<div class="timePickerDemoHeading">Configuring defaults</div>
+<br/><br/><br/>
+
+<timepicker [(ngModel)]="mytime"></timepicker>
+<pre class="alert alert-info">Time is: {{mytime}}</pre>

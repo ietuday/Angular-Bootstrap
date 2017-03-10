@@ -1,0 +1,154 @@
+<div class="dropDownDemoHeading">Dropdowns</div>
+
+<p>Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made interactive with the included dropdown directives.</p>
+
+<div class="dropDownDemoHeading">Examples</div>
+<p>Wrap the dropdown’s toggle (your button or link) and the dropdown menu within dropdown. Dropdowns can be triggered from a tag or button tag elements to better fit your potential needs.</p>
+
+<div class="dropDownDemoHeading">Single button dropdowns</div>
+<p>Any single .btn can be turned into a dropdown toggle with some markup changes. Here’s how you can put them to work with either button tag elements:</p>
+
+<div class="btn-group" dropdown>
+  <button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<br/><br/><br/><br/><br/><br/>
+<span dropdown (onToggle)="toggled($event)">
+  <a href id="simple-dropdown" dropdownToggle>
+    Click me for a dropdown, yo!
+  </a>
+  <ul class="dropdown-menu" dropdownMenu aria-labelledby="simple-dropdown">
+    <li *ngFor="let choice of items">
+      <a class="dropdown-item" href="#">{{choice}}</a>
+    </li>
+  </ul>
+</span>
+
+<br/><br/>
+
+<div class="dropDownDemoHeading">Split button dropdowns</div>
+<p>Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with the addition of .dropdown-toggle-split for proper spacing around the dropdown caret.</p>
+
+<div class="btn-group" dropdown>
+  <button id="split-button" type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle-split" dropdownToggle>
+    <span class="caret"></span>
+    <span class="sr-only">Split button!</span>
+  </button>
+  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="split-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div (click)="$event.preventDefault()">
+  <div class="btn-group" dropdown [isOpen]="status.isopen">
+    <button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+      Button dropdown <span class="caret"></span>
+    </button>
+    <ul dropdownMenu role="menu" aria-labelledby="single-button">
+      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+      <li class="divider dropdown-divider"></li>
+      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="toggleDropdown($event)">Toggle button dropdown</button>
+</div>
+
+<div class="btn-group" dropdown>
+  <button id="single-button" type="button" class="btn btn-primary" dropdownToggle [disabled]="disabled">
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+<button type="button" class="btn btn-warning" (click)="disabled = !disabled">Enable/Disable</button>
+
+
+<div class="dropDownDemoHeading">Menu alignment</div>
+<p>By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add class .dropdown-menu-right to a dropdownMenu to right align the dropdown menu.</p>
+
+<div class="btn-group" dropdown>
+  <button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+    This dropdown's menu is right-aligned <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button" class="dropdown-menu-right">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div class="btn-group" dropdown dropdown-append-to-body>
+  <button id="btn-append-to-body" type="button" class="btn btn-primary" dropdownToggle>
+    Dropdown on Body <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div class="btn-group" dropdown keyboardNav="true">
+  <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" dropdownToggle>
+    Dropdown with keyboard navigation <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" dropdownMenu role="menu" aria-labelledby="simple-btn-keyboard-nav">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div class="dropDownDemoHeading">Dropup variation</div>
+<p>Trigger dropdown menus above elements by adding .dropup to the parent element.</p>
+
+<div class="btn-group dropup" dropdown>
+  <button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+    Dropup <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+
+<div dropdown>
+  <button type="button" class="btn btn-primary" dropdownToggle>
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>

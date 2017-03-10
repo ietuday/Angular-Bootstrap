@@ -1,0 +1,136 @@
+<div class="popOverDemoHeading">Popover</div>
+
+<p>Add small overlay content, like those found in iOS, to any element for housing secondary information.</p>
+<div style="text-align:center;margin-top:10px;">
+<button type="button" class="btn btn-primary"
+        popover="Bootstrap4 is Awsome.">
+  Live demo
+</button>
+</div>
+
+<div class="popOverDemoHeading">Four directions</div>
+<p>Four positioning options are available: top, right, bottom, and left aligned.</p>
+<div style="text-align:center;">
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on left"
+        placement="left">
+  Popover on left
+</button>
+
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on top"
+        placement="top">
+  Popover on top
+</button>
+
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on bottom"
+        placement="bottom">
+  Popover on bottom
+</button>
+
+<button type="button" class="btn btn-default btn-secondary"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Popover on right"
+        placement="right">
+  Popover on right
+</button>
+</div>
+
+<div class="popOverDemoHeading">Dismiss on next click</div>
+<p>Use the focus trigger to dismiss popovers on the next click that the user makes.</p>
+<div style="text-align:center;">
+<button type="button" class="btn btn-success"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+        popoverTitle="Dismissible popover"
+        triggers="focus">
+  Dismissible popover
+</button>
+</div>
+
+<div class="popOverDemoHeading">Dynamic Content</div>
+<p>Popover content can contain any html template. Just create "template #myId" tag with any html allowed by Angular, and provide template ref (#myId) as popover content.</p>
+<div style="text-align:center">
+<button type="button" class="btn btn-info"
+        [popover]="content" [popoverTitle]="title">
+  Simple binding
+</button>
+</div>
+<div style="text-align:right">
+<template #popTemplate>Just another: {{content}}</template>
+<button type="button" class="btn btn-warning"
+        [popover]="popTemplate" popoverTitle="Template ref content inside">
+  TemplateRef binding
+</button>
+</div>
+
+<div class="popOverDemoHeading">Dynamic Html</div>
+<p>By using small trick you can display any dynamic html, which you got from ajax request for example.</p>
+<div style="text-align:center">
+<template #popTemplate>Here we go: <div [innerHtml]="html"></div></template>
+<button type="button" class="btn btn-success"
+        [popover]="popTemplate" popoverTitle="Dynamic html inside">
+  Show me popover with html
+</button>
+</div>
+
+<div class="popOverDemoHeading">Append to body</div>
+<p>When you have some styles on a parent element that interfere with a popover, you’ll want to specify a container="body" so that the popover’s HTML will be appended to body. This will help to avoid rendering problems in more complex components (like our input groups, button groups, etc) or inside elements with overflow: hidden</p>
+
+<div style="text-align:center">
+  <div class="row panel" style="position: relative; overflow: hidden;">
+    <div class="card-block panel-body">
+      <button type="button" class="btn btn-danger"
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+        Default popover
+      </button>
+      <button type="button" class="btn btn-success"
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              container="body">
+        Popover appended to body
+      </button>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center">
+  <button type="button" class="btn btn-primary"
+          popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+    Preconfigured popover
+  </button>
+</div>
+
+<div class="popOverDemoHeading">Custom triggers</div>
+<div style="text-align:center">
+<button type="button" class="btn btn-info"
+        popover="I will hide on blur"
+        triggers="mouseenter:mouseleave">
+  Hover over me!
+</button>
+</div>
+<br/><br/><br/><br/><br/><br/>
+
+<p>
+  <span popover="Hello there! I was triggered manually"
+        triggers="" #pop="bs-popover">
+  This text has attached popover
+  </span>
+</p>
+ <div style="text-align:center">
+<button type="button" class="btn btn-success" (click)="pop.show()">
+  Show
+</button>
+<button type="button" class="btn btn-warning" (click)="pop.hide()">
+  Hide
+</button>
+</div>
+<br/><br/><br/><br/><br/>
+<div>
+<button type="button" class="btn btn-info"
+        popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  I have component level styling
+</button>
+</div>

@@ -1,0 +1,42 @@
+<div class="ratingDemoHeading">Rating</div>
+<p>Rating component that will take care of visualising a star rating bar<br/>
+
+Note: Bootstrap 4 do not include glyphicons anymore, so if you want to continue use this font, you will need to add a link to glyphicons.css</p>
+
+<div class="ratingDemoHeading">Static</div>
+<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
+
+<pre class="card card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
+<br/><br/><br/><br/>
+
+<div class="ratingDemoHeading">Dynamic Rating</div>
+
+<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"
+        (onHover)="hoveringOver($event)" (onLeave)="resetStar()"
+        [titles]="['one','two','three']"></rating>
+<span class="label"
+      [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+      [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+
+<pre class="card card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b>;  Readonly is: <i>{{isReadonly}}</i>;  Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+<button type="button" class="btn btn-sm btn-danger" (click)="rate = 0"
+        [disabled]="isReadonly">Clear
+</button>
+<button type="button" class="btn btn-sm btn-primary"
+        (click)="isReadonly = ! isReadonly">Toggle Readonly
+</button>
+
+<br/><br/><br/><br/>
+
+<div class="ratingDemoHeading">CustomIcon</div>
+
+<div>
+  <rating [(ngModel)]="x" max="15" stateOn="glyphicon-ok-sign" stateOff="glyphicon-ok-circle"
+          style="color: #0275d8;"></rating>
+  <b>(<i>Rate:</i> {{x}})</b>
+</div>
+<div>
+  <rating [(ngModel)]="y" [ratingStates]="ratingStates"></rating>
+  <b>(<i>Rate:</i> {{y}})</b>
+</div>

@@ -1,0 +1,46 @@
+<div class="paginationDemoHeading">Pagination</div>
+
+<p><span style="font-weight:bolder">Pagination- </span> provide pagination links for your site or app with the multi-page pagination component, or the simpler pager alternative.</p>
+
+<p><span style="font-weight:bolder">Pager -</span>  quick previous and next links for simple pagination implementations with light markup and styles. It's great for simple sites like blogs or magazines.</p>
+
+<div class="paginationDemoHeading">Default</div>
+
+<pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+
+<pagination [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" class="pagination-sm"
+            previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+
+<pagination [directionLinks]="false" [boundaryLinks]="true" [totalItems]="totalItems"
+            [(ngModel)]="currentPage"></pagination>
+
+<pagination [directionLinks]="false" [totalItems]="totalItems" [(ngModel)]="currentPage"
+            (numPages)="smallnumPages = $event"></pagination>
+
+<pre class="card card-block card-header">The selected page no: {{currentPage}}/{{smallnumPages}}</pre>
+
+<button type="button" class="btn btn-info" (click)="setPage(3)">Set current page to: 3</button>
+
+<div class="paginationDemoHeading">States & Limits</div>
+<p>Limit the maximum visible buttons</p>
+
+<div class="col-md-6">
+  <pagination [totalItems]="bigTotalItems" (pageChanged)="pageChanged($event)" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm"
+              [boundaryLinks]="true"></pagination>
+</div>
+
+<div class="col-md-6">
+  <pagination [totalItems]="bigTotalItems" (pageChanged)="pageChanged($event)" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm"
+              [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event"></pagination>
+</div>
+<pre class="card card-block card-header">Page: {{bigCurrentPage}} / {{numPages}}</pre>
+
+<div class="paginationDemoHeading">Pager</div>
+
+<div class="col-md-6" style="margin: 20px 0;">
+  <pagination [directionLinks]="false" [totalItems]="totalItems" [(ngModel)]="currentPage" (numPages)="smallnumPages = $event"></pagination>
+</div>
+
+<div class="col-md-6">
+  <pager [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" pageBtnClass="btn" itemsPerPage="10"></pager>
+</div>
